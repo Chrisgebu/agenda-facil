@@ -88,7 +88,7 @@ Tela para listar os serviços oferecidos, com ações para criar, editar ou desa
 
 ## 11. Tecnologia de persistência
 
-- **SQLite:** banco de dados relacional armazenado inicialmente em um arquivo local do projeto. A escolha reduz a complexidade de configuração no início e permite guardar clientes, serviços e agendamentos de forma persistente.
+- **SQLite:** banco de dados relacional armazenado inicialmente em um arquivo local do projeto.
 
 ## 12. Diagrama da visão geral da solução
 
@@ -121,7 +121,6 @@ Tela para listar os serviços oferecidos, com ações para criar, editar ou desa
 
 ## Decisões iniciais de escopo
 
-- A primeira versão atenderá um único prestador. O suporte a vários profissionais poderá ser acrescentado posteriormente caso seja necessário.
+- A primeira versão atenderá um único prestador.
 - Agendamentos cancelados não serão apagados; seu status será alterado para preservar o histórico.
 - A duração do serviço será usada para calcular o término do atendimento e identificar conflitos de horário.
-- Autenticação, lembretes, pagamento on-line e notificações ficarão fora do escopo inicial. Esses recursos poderão ser avaliados nas próximas etapas sem alterar o núcleo da solução.
