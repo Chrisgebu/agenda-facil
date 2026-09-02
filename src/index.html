@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Agenda diária do protótipo AgendaFácil.">
+    <title>AgendaFácil - Agenda diária</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>AgendaFácil</h1>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Agenda</a></li>
+          <li><a href="agendamento.html">Novo agendamento</a></li>
+          <li><a href="clientes.html">Clientes</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="titulo-agenda">
+        <h2 id="titulo-agenda">Agenda do dia</h2>
+        <p>Consulte os horários cadastrados para uma data.</p>
+
+        <form action="#" method="get">
+          <p>
+            <label for="data-agenda">Data</label>
+            <input id="data-agenda" name="data" type="date">
+          </p>
+          <button type="submit">Ver agenda</button>
+        </form>
+
+        <p>O filtro por data será conectado à agenda em uma próxima etapa.</p>
+      </section>
+
+      <section aria-labelledby="titulo-lista">
+        <h2 id="titulo-lista">Agendamentos</h2>
+        <p>Nenhum agendamento para exibir.</p>
+        <p>Quando os dados forem registrados, os atendimentos aparecerão nesta área.</p>
+      </section>
+
+      <section aria-labelledby="titulo-atalhos">
+        <h2 id="titulo-atalhos">Acessos rápidos</h2>
+        <article>
+          <h3>Novo agendamento</h3>
+          <p>Registre os dados de um atendimento.</p>
+          <a href="agendamento.html">Abrir formulário de agendamento</a>
+        </article>
+
+        <article>
+          <h3>Clientes</h3>
+          <p>Consulte ou cadastre informações de clientes.</p>
+          <a href="clientes.html">Abrir página de clientes</a>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>AgendaFácil - protótipo estrutural da Etapa 02.</p>
+    </footer>
+  </body>
+</html>

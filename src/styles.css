@@ -1,0 +1,86 @@
+/* Estilos básicos usados apenas para facilitar a leitura das páginas. */
+body {
+  margin: 0;
+  color: #1f2933;
+  background: #f5f7f8;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+header,
+footer {
+  padding: 16px;
+  color: #ffffff;
+  background: #245372;
+}
+
+header > *,
+footer p,
+main {
+  max-width: 800px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  color: #ffffff;
+}
+
+main {
+  padding: 24px 16px;
+}
+
+section,
+article,
+fieldset {
+  margin: 12px 0;
+  padding: 14px;
+  border: 1px solid #c7d1d8;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+article {
+  border-left: 4px solid #245372;
+}
+
+/* Campos e botões continuam sendo controles nativos do HTML. */
+label {
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  padding: 8px;
+  border: 1px solid #8d9aa3;
+  border-radius: 3px;
+  font: inherit;
+}
+
+button {
+  padding: 8px 12px;
+  border: 1px solid #1b425c;
+  border-radius: 3px;
+  color: #ffffff;
+  background: #245372;
+  font: inherit;
+}
+
+footer {
+  margin-top: 24px;
+}
