@@ -9,18 +9,20 @@
   </head>
   <body>
     <header>
-      <h1>AgendaFácil</h1>
-      <nav aria-label="Navegação principal">
-        <ul>
-          <li><a href="index.html" aria-current="page">Agenda</a></li>
-          <li><a href="agendamento.html">Novo agendamento</a></li>
-          <li><a href="clientes.html">Clientes</a></li>
-        </ul>
-      </nav>
+      <div class="topo-conteudo">
+        <h1>AgendaFácil</h1>
+        <nav aria-label="Navegação principal">
+          <ul>
+            <li><a href="index.html" aria-current="page">Agenda</a></li>
+            <li><a href="agendamento.html">Novo agendamento</a></li>
+            <li><a href="clientes.html">Clientes</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <section aria-labelledby="titulo-agenda">
+      <section class="painel" aria-labelledby="titulo-agenda">
         <h2 id="titulo-agenda">Agenda do dia</h2>
         <p>Consulte os horários cadastrados para uma data.</p>
 
@@ -35,30 +37,32 @@
         <p>O filtro por data será conectado à agenda em uma próxima etapa.</p>
       </section>
 
-      <section aria-labelledby="titulo-lista">
+      <section class="painel" aria-labelledby="titulo-lista">
         <h2 id="titulo-lista">Agendamentos</h2>
         <p>Nenhum agendamento para exibir.</p>
         <p>Quando os dados forem registrados, os atendimentos aparecerão nesta área.</p>
       </section>
 
-      <section aria-labelledby="titulo-atalhos">
+      <section class="painel" aria-labelledby="titulo-atalhos">
         <h2 id="titulo-atalhos">Acessos rápidos</h2>
-        <article>
-          <h3>Novo agendamento</h3>
-          <p>Registre os dados de um atendimento.</p>
-          <a href="agendamento.html">Abrir formulário de agendamento</a>
-        </article>
+        <div class="grade-atalhos">
+          <article>
+            <h3>Novo agendamento</h3>
+            <p>Registre os dados de um atendimento.</p>
+            <a href="agendamento.html">Abrir formulário de agendamento</a>
+          </article>
 
-        <article>
-          <h3>Clientes</h3>
-          <p>Consulte ou cadastre informações de clientes.</p>
-          <a href="clientes.html">Abrir página de clientes</a>
-        </article>
+          <article>
+            <h3>Clientes</h3>
+            <p>Consulte ou cadastre informações de clientes.</p>
+            <a href="clientes.html">Abrir página de clientes</a>
+          </article>
+        </div>
       </section>
     </main>
 
     <footer>
-      <p>AgendaFácil - protótipo estrutural da Etapa 02.</p>
+      <p>AgendaFácil - protótipo de agendamentos.</p>
     </footer>
   </body>
 </html>

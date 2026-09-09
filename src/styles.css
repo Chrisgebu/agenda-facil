@@ -1,4 +1,8 @@
-/* Estilos básicos usados apenas para facilitar a leitura das páginas. */
+/* Estilos gerais da interface. */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   color: #1f2933;
@@ -7,21 +11,36 @@ body {
   line-height: 1.5;
 }
 
-header,
-footer {
-  padding: 16px;
+header {
   color: #ffffff;
   background: #245372;
 }
 
-header > *,
-footer p,
-main {
-  max-width: 800px;
+.topo-conteudo,
+main,
+footer p {
+  width: min(100% - 32px, 1080px);
+  margin: 0 auto;
+}
+
+.topo-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+}
+
+h1,
+h2,
+h3,
+p {
   margin-top: 0;
+}
+
+h1 {
   margin-bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
+  font-size: 1.6rem;
 }
 
 nav ul {
@@ -34,29 +53,70 @@ nav ul {
 }
 
 nav a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 4px;
   color: #ffffff;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus,
+nav a[aria-current="page"] {
+  background: #1b425c;
 }
 
 main {
-  padding: 24px 16px;
+  padding: 32px 0;
 }
 
-section,
-article,
-fieldset {
-  margin: 12px 0;
-  padding: 14px;
+.painel {
+  margin-bottom: 20px;
+  padding: 24px;
   border: 1px solid #c7d1d8;
-  border-radius: 4px;
+  border-radius: 6px;
   background: #ffffff;
 }
 
 article {
+  padding: 18px;
+  border: 1px solid #c7d1d8;
+  border-radius: 4px;
   border-left: 4px solid #245372;
 }
 
-/* Campos e botões continuam sendo controles nativos do HTML. */
+.grade-atalhos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.formulario {
+  display: grid;
+  gap: 16px;
+}
+
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid #c7d1d8;
+  border-radius: 4px;
+}
+
+.campo-largo {
+  grid-column: 1 / -1;
+}
+
+.formulario p {
+  margin: 0;
+}
+
 label {
+  display: block;
+  margin-bottom: 6px;
   font-weight: 700;
 }
 
@@ -65,11 +125,16 @@ select,
 textarea {
   display: block;
   width: 100%;
-  max-width: 420px;
   padding: 8px;
   border: 1px solid #8d9aa3;
   border-radius: 3px;
   font: inherit;
+}
+
+.acoes-formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 button {
@@ -82,5 +147,77 @@ button {
 }
 
 footer {
-  margin-top: 24px;
+  padding: 18px 0;
+  color: #ffffff;
+  background: #245372;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+/* Ajustes para tablet e telas menores. */
+@media (max-width: 900px) {
+  .topo-conteudo {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  fieldset,
+  .grade-atalhos {
+    grid-template-columns: 1fr;
+  }
+
+  .campo-largo {
+    grid-column: auto;
+  }
+}
+
+/* Ajustes para smartphone. */
+@media (max-width: 480px) {
+  .topo-conteudo,
+  main,
+  footer p {
+    width: min(100% - 24px, 1080px);
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  nav,
+  nav ul,
+  nav li {
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  nav a {
+    text-align: center;
+  }
+
+  main {
+    padding: 20px 0;
+  }
+
+  .painel {
+    padding: 16px;
+  }
+
+  .acoes-formulario {
+    flex-direction: column;
+  }
+
+  .acoes-formulario button {
+    width: 100%;
+  }
 }
