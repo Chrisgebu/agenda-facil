@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Formulário estrutural para novo agendamento no AgendaFácil.">
+    <meta name="description" content="Cadastro de agendamentos no AgendaFácil.">
     <title>AgendaFácil - Novo agendamento</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="js/comum.js" defer></script>
+    <script src="js/agendamento.js" defer></script>
   </head>
   <body>
     <header>
@@ -22,20 +24,29 @@
     </header>
 
     <main>
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></p>
+      <noscript><p>Ative o JavaScript no navegador para criar agendamentos.</p></noscript>
       <section class="painel" aria-labelledby="titulo-agendamento">
         <h2 id="titulo-agendamento">Novo agendamento</h2>
         <p>Preencha os dados abaixo para registrar um atendimento na agenda.</p>
 
-        <form class="formulario" action="#" method="post">
+        <p id="aviso-clientes" hidden>Cadastre um cliente na página <a href="clientes.html">Clientes</a> antes de agendar.</p>
+        <form id="form-agendamento" class="formulario" action="#" method="post" novalidate>
           <fieldset>
             <legend>Cliente e serviço</legend>
             <p>
-              <label for="cliente">Nome do cliente</label>
-              <input id="cliente" name="cliente" type="text" required>
+              <label for="cliente">Cliente</label>
+              <select id="cliente" name="cliente" required>
+                <option value="">Selecione um cliente</option>
+              </select>
             </p>
             <p>
               <label for="servico">Serviço</label>
-              <input id="servico" name="servico" type="text" required>
+              <input id="servico" name="servico" type="text" required minlength="2" maxlength="80">
+            </p>
+            <p>
+              <label for="duracao">Duração do serviço (minutos)</label>
+              <input id="duracao" name="duracao" type="number" min="15" max="480" step="15" value="30" required>
             </p>
           </fieldset>
 
@@ -51,7 +62,7 @@
             </p>
             <p class="campo-largo">
               <label for="observacoes">Observações</label>
-              <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+              <textarea id="observacoes" name="observacoes" rows="4" maxlength="300"></textarea>
             </p>
           </fieldset>
 
@@ -60,7 +71,7 @@
             <button type="reset">Limpar campos</button>
           </p>
         </form>
-        <p>O formulário utiliza validação nativa do HTML, mas ainda não salva dados.</p>
+        <p>Os agendamentos ficam salvos neste navegador. <a href="index.html">Consultar agenda</a>.</p>
       </section>
     </main>
 

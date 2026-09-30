@@ -6,6 +6,8 @@
     <meta name="description" content="Agenda diária do protótipo AgendaFácil.">
     <title>AgendaFácil - Agenda diária</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="js/comum.js" defer></script>
+    <script src="js/agenda.js" defer></script>
   </head>
   <body>
     <header>
@@ -22,25 +24,29 @@
     </header>
 
     <main>
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></p>
+      <noscript><p>Ative o JavaScript no navegador para usar a agenda.</p></noscript>
       <section class="painel" aria-labelledby="titulo-agenda">
         <h2 id="titulo-agenda">Agenda do dia</h2>
         <p>Consulte os horários cadastrados para uma data.</p>
 
-        <form action="#" method="get">
+        <form id="form-agenda" action="#" method="get" novalidate>
           <p>
             <label for="data-agenda">Data</label>
-            <input id="data-agenda" name="data" type="date">
+            <input id="data-agenda" name="data" type="date" required>
           </p>
-          <button type="submit">Ver agenda</button>
+          <p class="acoes-formulario">
+            <button type="submit">Ver agenda</button>
+            <button id="mostrar-todos" type="button">Mostrar todos</button>
+          </p>
         </form>
 
-        <p>O filtro por data será conectado à agenda em uma próxima etapa.</p>
       </section>
 
       <section class="painel" aria-labelledby="titulo-lista">
         <h2 id="titulo-lista">Agendamentos</h2>
-        <p>Nenhum agendamento para exibir.</p>
-        <p>Quando os dados forem registrados, os atendimentos aparecerão nesta área.</p>
+        <p id="resumo-agenda" aria-live="polite"></p>
+        <div id="lista-agendamentos" class="lista-registros"></div>
       </section>
 
       <section class="painel" aria-labelledby="titulo-atalhos">

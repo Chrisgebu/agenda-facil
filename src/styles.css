@@ -114,6 +114,43 @@ fieldset {
   margin: 0;
 }
 
+.lista-registros {
+  display: grid;
+  gap: 12px;
+}
+
+.lista-registros article {
+  overflow-wrap: anywhere;
+}
+
+.mensagem {
+  padding: 12px;
+  border: 1px solid #5c8b68;
+  border-radius: 4px;
+  color: #214c2d;
+  background: #eef8f0;
+}
+
+.mensagem.erro {
+  color: #822424;
+  border-color: #b85e5e;
+  background: #fff0f0;
+}
+
+.cancelado {
+  border-left-color: #8d9aa3;
+  background: #f5f7f8;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 label {
   display: block;
   margin-bottom: 6px;
