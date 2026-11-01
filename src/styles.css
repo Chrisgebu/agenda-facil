@@ -1,8 +1,9 @@
-/* Estilos gerais da interface. */
+/* Define o modelo de caixa para que padding e borda contem dentro da largura declarada. */
 * {
   box-sizing: border-box;
 }
 
+/* Aparência global compartilhada pelas três páginas. */
 body {
   margin: 0;
   color: #1f2933;
@@ -11,11 +12,13 @@ body {
   line-height: 1.5;
 }
 
+/* Faixa superior de identificação e navegação. */
 header {
   color: #ffffff;
   background: #245372;
 }
 
+/* Centraliza conteúdo e limita a largura para manter leitura confortável em telas largas. */
 .topo-conteudo,
 main,
 footer p {
@@ -23,6 +26,7 @@ footer p {
   margin: 0 auto;
 }
 
+/* Flexbox deixa título e menu na mesma linha enquanto houver espaço. */
 .topo-conteudo {
   display: flex;
   align-items: center;
@@ -43,6 +47,7 @@ h1 {
   font-size: 1.6rem;
 }
 
+/* Remove a aparência de lista e organiza os links de navegação. */
 nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -52,6 +57,7 @@ nav ul {
   list-style: none;
 }
 
+/* Cada link ocupa uma área clicável maior que apenas o texto. */
 nav a {
   display: block;
   padding: 8px 10px;
@@ -66,10 +72,12 @@ nav a[aria-current="page"] {
   background: #1b425c;
 }
 
+/* Espaçamento entre o cabeçalho, os painéis e o rodapé. */
 main {
   padding: 32px 0;
 }
 
+/* Painéis agrupam cada assunto da tela com fundo e borda próprios. */
 .painel {
   margin-bottom: 20px;
   padding: 24px;
@@ -78,6 +86,7 @@ main {
   background: #ffffff;
 }
 
+/* Cards criados dinamicamente para clientes e agendamentos. */
 article {
   padding: 18px;
   border: 1px solid #c7d1d8;
@@ -85,17 +94,20 @@ article {
   border-left: 4px solid #245372;
 }
 
+/* Grade de dois atalhos na página inicial. */
 .grade-atalhos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
+/* Formulários usam Grid para manter campos e ações espaçados. */
 .formulario {
   display: grid;
   gap: 16px;
 }
 
+/* Cada fieldset organiza campos relacionados em duas colunas no desktop. */
 fieldset {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -114,6 +126,7 @@ fieldset {
   margin: 0;
 }
 
+/* A lista de cards mantém uma separação vertical uniforme. */
 .lista-registros {
   display: grid;
   gap: 12px;
@@ -123,6 +136,7 @@ fieldset {
   overflow-wrap: anywhere;
 }
 
+/* Mensagem verde indica sucesso; a classe .erro troca a aparência para vermelho. */
 .mensagem {
   padding: 12px;
   border: 1px solid #5c8b68;
@@ -137,11 +151,22 @@ fieldset {
   background: #fff0f0;
 }
 
+/* Estado mostrado enquanto uma Promise de consulta, envio, edição ou exclusão aguarda resposta. */
+.carregamento {
+  padding: 12px;
+  border: 1px solid #245372;
+  border-radius: 4px;
+  color: #1b425c;
+  background: #e9f2f7;
+}
+
+/* Card de atendimento cancelado permanece no histórico com visual neutro. */
 .cancelado {
   border-left-color: #8d9aa3;
   background: #f5f7f8;
 }
 
+/* O cursor mostra que botões representam ações interativas. */
 button {
   cursor: pointer;
 }
@@ -168,12 +193,14 @@ textarea {
   font: inherit;
 }
 
+/* Agrupa botões de formulários e dos cards de clientes. */
 .acoes-formulario {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
+/* Estilo visual padrão dos botões da aplicação. */
 button {
   padding: 8px 12px;
   border: 1px solid #1b425c;
@@ -183,6 +210,19 @@ button {
   font: inherit;
 }
 
+/* Ação alternativa, usada para cancelar edição ou disparar o teste de erro. */
+.botao-secundario {
+  color: #1b425c;
+  background: #ffffff;
+}
+
+/* Ação destrutiva que solicita confirmação antes de excluir um cliente. */
+.botao-perigo {
+  border-color: #8b2a2a;
+  background: #a33a3a;
+}
+
+/* Rodapé usa as mesmas cores do cabeçalho para fechar cada página. */
 footer {
   padding: 18px 0;
   color: #ffffff;

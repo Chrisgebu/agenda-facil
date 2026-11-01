@@ -6,8 +6,8 @@
     <meta name="description" content="Cadastro de agendamentos no AgendaFácil.">
     <title>AgendaFácil - Novo agendamento</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="js/comum.js" defer></script>
-    <script src="js/agendamento.js" defer></script>
+    <!-- A página usa módulos ES para importar somente as funções necessárias. -->
+    <script type="module" src="js/agendamento.js"></script>
   </head>
   <body>
     <header>
@@ -24,6 +24,7 @@
     </header>
 
     <main>
+      <!-- O JavaScript exibe aqui as confirmações e os erros de validação. -->
       <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></p>
       <noscript><p>Ative o JavaScript no navegador para criar agendamentos.</p></noscript>
       <section class="painel" aria-labelledby="titulo-agendamento">

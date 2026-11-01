@@ -6,8 +6,8 @@
     <meta name="description" content="Cadastro e pesquisa de clientes do AgendaFácil.">
     <title>AgendaFácil - Clientes</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="js/comum.js" defer></script>
-    <script src="js/clientes.js" defer></script>
+    <!-- type="module" permite que clientes.js importe os módulos de interface e serviço. -->
+    <script type="module" src="js/clientes.js"></script>
   </head>
   <body>
     <header>
@@ -24,7 +24,9 @@
     </header>
 
     <main>
+      <!-- Regiões atualizadas pelo JavaScript para comunicar sucesso, erro e carregamento. -->
       <p id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></p>
+      <p id="carregamento" class="carregamento" role="status" aria-live="polite" hidden></p>
       <noscript><p>Ative o JavaScript no navegador para cadastrar e pesquisar clientes.</p></noscript>
       <section class="painel" aria-labelledby="titulo-clientes">
         <h2 id="titulo-clientes">Clientes cadastrados</h2>
@@ -34,6 +36,11 @@
         </p>
         <p id="resumo-clientes" aria-live="polite"></p>
         <div id="lista-clientes" class="lista-registros"></div>
+        <!-- Estes botões demonstram a consulta assíncrona e o tratamento de falha de comunicação. -->
+        <p class="acoes-formulario">
+          <button id="consultar-clientes" type="button">Consultar dados do serviço</button>
+          <button id="simular-erro" class="botao-secundario" type="button">Simular erro de comunicação</button>
+        </p>
       </section>
 
       <section class="painel" aria-labelledby="titulo-cadastro">
@@ -54,9 +61,10 @@
           <p class="acoes-formulario">
             <button type="submit">Salvar cliente</button>
             <button type="reset">Limpar campos</button>
+            <button id="cancelar-edicao" class="botao-secundario" type="button" hidden>Cancelar edição</button>
           </p>
         </form>
-        <p>Informe o telefone com DDD. Os cadastros ficam salvos neste navegador.</p>
+        <p>Informe o telefone com DDD. A primeira consulta usa um arquivo JSON; os cadastros e alterações são enviados a um serviço simulado neste navegador.</p>
       </section>
     </main>
 
