@@ -1,0 +1,5 @@
+# Dependências instaladas localmente pelo npm não devem ir para o repositório.
+node_modules/
+
+# Arquivos de ambiente costumam guardar configurações específicas da máquina.
+.env
