@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/api/clientes/{{clienteCriadoId}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "email": "carla.patch@example.com"
+    }
+order: 5000

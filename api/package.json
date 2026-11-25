@@ -2,13 +2,15 @@
   "name": "agenda-facil-api",
   "version": "1.0.0",
   "private": true,
-  "description": "API REST de clientes do AgendaFácil para a Etapa 06.",
+  "description": "API REST do AgendaFácil com PostgreSQL e arquitetura MVC para a Etapa 07.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.3"
   }
 }

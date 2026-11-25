@@ -1,0 +1,5 @@
+$kind: collection
+description: Coleção para testar os endpoints REST do recurso clientes. Inicie a API antes de executar as requisições e rode a pasta CRUD na ordem apresentada.
+variables:
+  baseUrl: http://localhost:3000
+  clienteCriadoId: "3"

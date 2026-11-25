@@ -1,0 +1,137 @@
+{
+  "info": {
+    "_postman_id": "a8bfc89e-f2be-4d15-a43e-42bb7d363f90",
+    "name": "AgendaFácil - Etapa 07 - PostgreSQL e MVC",
+    "description": "Coleção para testar o CRUD persistente de clientes e agendamentos. Inicie a API e execute as requisições na ordem indicada.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "clienteCriadoId", "value": "" },
+    { "key": "agendamentoCriadoId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1 - Clientes (CRUD persistente)",
+      "item": [
+        {
+          "name": "GET - Listar clientes",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/clientes" },
+          "response": []
+        },
+        {
+          "name": "POST - Criar cliente para teste",
+          "event": [{ "listen": "test", "script": { "exec": ["pm.test('Status 201', () => pm.response.to.have.status(201));", "pm.collectionVariables.set('clienteCriadoId', pm.response.json().dados.id);"] } }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Carla Banco\",\n  \"telefone\": \"(11) 97777-3333\",\n  \"email\": \"carla.banco@example.com\"\n}" },
+            "url": "{{baseUrl}}/api/clientes"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Consultar cliente criado",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/clientes/{{clienteCriadoId}}" },
+          "response": []
+        },
+        {
+          "name": "PUT - Atualizar cliente completo",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Carla Banco Atualizada\",\n  \"telefone\": \"(11) 97777-4444\",\n  \"email\": \"carla.atualizada@example.com\"\n}" },
+            "url": "{{baseUrl}}/api/clientes/{{clienteCriadoId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH - Atualizar somente o e-mail",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"carla.patch@example.com\"\n}" },
+            "url": "{{baseUrl}}/api/clientes/{{clienteCriadoId}}"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2 - Agendamentos e relacionamento", 
+      "item": [
+        {
+          "name": "POST - Criar agendamento para o cliente criado",
+          "event": [{ "listen": "test", "script": { "exec": ["pm.test('Status 201', () => pm.response.to.have.status(201));", "pm.collectionVariables.set('agendamentoCriadoId', pm.response.json().dados.id);"] } }],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"clienteId\": {{clienteCriadoId}},\n  \"servico\": \"Corte teste\",\n  \"duracao\": 30,\n  \"data\": \"2026-12-15\",\n  \"horario\": \"14:00\",\n  \"observacoes\": \"Agendamento criado pelo Postman\"\n}" },
+            "url": "{{baseUrl}}/api/agendamentos"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Listar agendamentos com cliente relacionado",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/agendamentos" },
+          "response": []
+        },
+        {
+          "name": "PATCH - Atualizar status do agendamento",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"Cancelado\"\n}" },
+            "url": "{{baseUrl}}/api/agendamentos/{{agendamentoCriadoId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE - Cliente com agendamento retorna 409",
+          "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/api/clientes/{{clienteCriadoId}}" },
+          "response": []
+        },
+        {
+          "name": "DELETE - Excluir agendamento",
+          "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/api/agendamentos/{{agendamentoCriadoId}}" },
+          "response": []
+        },
+        {
+          "name": "DELETE - Excluir cliente sem agendamento",
+          "request": { "method": "DELETE", "header": [], "url": "{{baseUrl}}/api/clientes/{{clienteCriadoId}}" },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3 - Erros de validação",
+      "item": [
+        {
+          "name": "POST - Cliente com dados inválidos retorna 422",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"A\",\n  \"telefone\": \"123\"\n}" },
+            "url": "{{baseUrl}}/api/clientes"
+          },
+          "response": []
+        },
+        {
+          "name": "POST - Agendamento com cliente inexistente retorna 422",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 9999,\n  \"servico\": \"Teste\",\n  \"duracao\": 30,\n  \"data\": \"2026-12-16\",\n  \"horario\": \"15:00\"\n}" },
+            "url": "{{baseUrl}}/api/agendamentos"
+          },
+          "response": []
+        },
+        {
+          "name": "GET - Cliente inexistente retorna 404",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/clientes/99999" },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
